@@ -144,7 +144,7 @@ Workflow Overview:
 $ git checkout -b "first_experiment"
 $ dvc init
 $ dvc config core.analytics false
-$ dvc remote add -d remote_storage /Users/harrywang/sandbox/dvc-remote 
+$ dvc remote add -d remote_storage **SOME_SHARED_LOCATION**/dvc-remote 
 $ dvc add data/raw/train
 $ dvc add data/raw/val
 $ git add --all
@@ -214,17 +214,20 @@ $ git checkout -b sgd-pipeline # create a branch for a pipeline
 $ dvc remove data/prepared/train.csv.dvc \
              data/prepared/test.csv.dvc \
              model/model.joblib.dvc --outs
-$ dvc run -n prepare \
+$ dvc stage create -n prepare \
         -d src/prepare.py -d data/raw \
         -o data/prepared/train.csv -o data/prepared/test.csv \
+        --run \
         python src/prepare.py
-$ dvc run -n train \
+$ dvc stage create -n train \
         -d src/train.py -d data/prepared/train.csv \
         -o model/model.joblib \
+        --run \
         python src/train.py
-$ dvc run -n evaluate \
+$ dvc stage create -n evaluate \
         -d src/evaluate.py -d model/model.joblib \
         -M metrics/accuracy.json \
+        --run \
         python src/evaluate.py
 $ dvc metrics show
 $ git add --all
