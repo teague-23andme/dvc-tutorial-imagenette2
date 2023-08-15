@@ -4,6 +4,13 @@ My notes for the tutorial at: https://realpython.com/python-data-version-control
 
 checkout different branches for details. 
 
+## Other Tutorials 
+ - https://realpython.com/python-data-version-control/
+ - https://dvc.org/doc/use-cases/versioning-data-and-models/tutorial
+ - https://github.com/hzdr/dvc_tutorial_series
+ - https://medium.com/@mzeynali01/mlops-1-dvc-ed14d9993411
+
+
 ## Setup
 
 ```
