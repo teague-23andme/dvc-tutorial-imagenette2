@@ -7,8 +7,20 @@ checkout different branches for details.
 ## Setup
 
 ```
+# Spack isn't required but included to capture the self-contained nature of the process.
+$ spack env create -d .
+$ spacktivate .
+$ spack add python py-virtualenv py-pip
+$ spack install -v
+$ virtualenv .venv
+$ source .venv/bin/activate
 $ python3 -m venv venv
 $ source venv/bin/activate
+$ pip install -r requirements.txt
+
+# Alternatively
+$ python -m venv .venv
+$ source .venv/bin/activate
 $ pip install -r requirements.txt
 ```
 ## Imagenette Dataset
